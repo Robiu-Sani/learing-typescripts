@@ -1,81 +1,89 @@
 "use strict";
-// A simple function that takes no parameters and returns no value
+
+// A simple function that prints a greeting message
 function greet() {
-    console.log("Hello, welcome to TypeScript!");
+  console.log("Hello, welcome to JavaScript!");
 }
-greet(); // Calling the greet function to print a greeting message
-// Function with parameters and return type
+greet();
+
+// Function with parameters that returns the sum of two numbers
 function add(a, b) {
-    return a + b; // The return type is a number because we are returning the sum of two numbers
+  return a + b;
 }
-const sum = add(5, 10); // Calling the add function with arguments 5 and 10
+const sum = add(5, 10);
 console.log(`Sum: ${sum}`); // Output: Sum: 15
-// Optional parameters: We can define a parameter as optional by using the '?' symbol
+
+// Function with optional parameters
 function multiply(a, b) {
-    if (b) {
-        return a * b; // If both parameters are provided, multiply them
-    }
-    return a; // If only one parameter is provided, return that value
+  if (b) {
+    return a * b;
+  }
+  return a;
 }
-console.log(multiply(5, 10)); // Calling multiply with two arguments (5 * 10), Output: 50
-console.log(multiply(5)); // Calling multiply with one argument, Output: 5 (b is optional)
-// Default parameters: If no argument is passed, it takes the default value
+console.log(multiply(5, 10)); // Output: 50
+console.log(multiply(5)); // Output: 5
+
+// Function with default parameters
 function power(base, exponent = 2) {
-    return Math.pow(base, exponent); // Raises the base to the exponent (default is 2)
+  return Math.pow(base, exponent);
 }
-console.log(power(5)); // Calling power with one argument (5^2), Output: 25
-console.log(power(5, 3)); // Calling power with two arguments (5^3), Output: 125
-// Rest parameters: Allows us to pass any number of arguments as an array
+console.log(power(5)); // Output: 25
+console.log(power(5, 3)); // Output: 125
+
+// Function using rest parameters
 function sumAll(...numbers) {
-    return numbers.reduce((acc, num) => acc + num, 0); // Reduces the array to the sum of all numbers
+  return numbers.reduce((acc, num) => acc + num, 0);
 }
-console.log(sumAll(1, 2, 3, 4, 5)); // Calling sumAll with multiple arguments, Output: 15
+console.log(sumAll(1, 2, 3, 4, 5)); // Output: 15
+
 // Function that returns another function (Closure)
 function outerFunction(name) {
-    return function () {
-        return `Hello, ${name}`; // The returned function can access the `name` variable from the outer scope
-    };
+  return function () {
+    return `Hello, ${name}`;
+  };
 }
-const greetingFunction = outerFunction("TypeScript"); // Calling outerFunction and storing the returned function
-console.log(greetingFunction()); // Calling the returned function, Output: Hello, TypeScript
-// Arrow functions: A shorthand way of writing functions
+const greetingFunction = outerFunction("JavaScript");
+console.log(greetingFunction()); // Output: Hello, JavaScript
+
+// Arrow function for subtraction
 const subtract = (a, b) => a - b;
-console.log(`Subtraction: ${subtract(10, 5)}`); // Calling subtract, Output: Subtraction: 5
-// Function types: We can assign a function to a variable with a specific type
-let multiplyNumbers;
-multiplyNumbers = (x, y) => x * y; // Assigning a function that matches the type
-console.log(multiplyNumbers(5, 6)); // Calling multiplyNumbers, Output: 30
-// Callback functions: A function passed as an argument to another function
+console.log(`Subtraction: ${subtract(10, 5)}`); // Output: Subtraction: 5
+
+// Function types: Assigning a function to a variable
+let multiplyNumbers = (x, y) => x * y;
+console.log(multiplyNumbers(5, 6)); // Output: 30
+
+// Callback function
 function computeAndLog(operation, num1, num2) {
-    const result = operation(num1, num2);
-    console.log(`The result of the operation is: ${result}`);
+  const result = operation(num1, num2);
+  console.log(`The result of the operation is: ${result}`);
 }
-computeAndLog((a, b) => a * b, 5, 10); // Passing a callback function (multiplication), Output: The result of the operation is: 50
-// Recursive functions: A function that calls itself
+computeAndLog((a, b) => a * b, 5, 10); // Output: The result of the operation is: 50
+
+// Recursive function for calculating factorial
 function factorial(n) {
-    if (n === 1) {
-        return 1; // Base case: When n is 1, return 1 to stop recursion
-    }
-    return n * factorial(n - 1); // Recursively multiply n by factorial of (n-1)
+  if (n === 1) {
+    return 1;
+  }
+  return n * factorial(n - 1);
 }
-console.log(factorial(5)); // Calling factorial, Output: 120 (5*4*3*2*1)
+console.log(factorial(5)); // Output: 120
+
+// Function to describe the type of input
 function describe(value) {
-    if (typeof value === "number") {
-        return `This is a number: ${value}`;
-    }
-    else if (typeof value === "string") {
-        return `This is a string: "${value}"`;
-    }
-    return "Unknown type";
+  if (typeof value === "number") {
+    return `This is a number: ${value}`;
+  } else if (typeof value === "string") {
+    return `This is a string: "${value}"`;
+  }
+  return "Unknown type";
 }
-console.log(describe(42)); // Calling describe with a number, Output: This is a number: 42
-console.log(describe("TypeScript")); // Calling describe with a string, Output: This is a string: "TypeScript"
-// Higher-order functions: Functions that take other functions as arguments or return functions
+console.log(describe(42)); // Output: This is a number: 42
+console.log(describe("JavaScript")); // Output: This is a string: "JavaScript"
+
+// Higher-order function: Applies a function to each element of an array
 function mapArray(arr, func) {
-    return arr.map(func); // Applies the passed function to each element of the array
+  return arr.map(func);
 }
-const doubled = mapArray([1, 2, 3], (n) => n * 2); // Passing a function to double the array values
+const doubled = mapArray([1, 2, 3], (n) => n * 2);
 console.log(doubled); // Output: [2, 4, 6]
-// Why do we use functions?
-// Functions help us organize code into reusable and modular blocks. They allow us to avoid repeating code (DRY principle)
-// and make the code more readable and maintainable. Functions can take input (parameters) and return a result, or just perform actions like logging or updating a value.
