@@ -58,6 +58,3 @@ let unknownValue: unknown = 10; // Type is unknown, and requires type-checking b
 function throwError(message: string): never {
   throw new Error(message); // This function never returns, it throws an error.
 }
-
-// BigInt type: Used for very large numbers.
-const bigInt: bigint = 9007199254740991n; // A big integer value (n is required at the end for BigInt).

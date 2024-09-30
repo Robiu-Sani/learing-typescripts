@@ -1,5 +1,9 @@
 console.log("testing");
 
+to create configerationfile = tsc --init
+then = on json file un comment 
+   "noEmitOnError": true 
+
 // Number type: It holds numeric values.
 const num: number = 5454;  // This variable holds a number (integer or float).
 
@@ -59,5 +63,3 @@ function throwError(message: string): never {
   throw new Error(message);  // This function never returns, it throws an error.
 }
 
-// BigInt type: Used for very large numbers.
-const bigInt: bigint = 9007199254740991n;  // A big integer value (n is required at the end for BigInt).
