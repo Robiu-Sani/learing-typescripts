@@ -15,13 +15,13 @@ after that update thislene by 2020 //   "target": "es2020"
 const num: number = 5454;
 ```
 - String type: It holds text values.This variable holds a string value.
-  ```
+```
 const str: string = "Hello, TypeScript";
-  ```
+```
 - Boolean type: It holds true or false values.This is a boolean value, either true or false.
-  ```
+```
 const isTrue: boolean = true;
-  ```
+```
 - Array of numbers: This array contains only numbers.An array that holds numbers.
   ```
 const arr: number[] = [1, 2, 3];
